@@ -1,7 +1,12 @@
+import { useState } from "react"; // importar el hook para manejar el state
 import Header from "./components/Header" // importar un componente
 import Guitar from "./components/Guitar"
 
 function App() {
+
+    // State
+    // [state, funcion-cambiar-state] = valor-inicial
+    const [auth, setAuth] = useState([]);
 
   return (
     <>
