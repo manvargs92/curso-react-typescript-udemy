@@ -6,7 +6,15 @@ function App() {
 
     // State
     // [state, funcion-cambiar-state] = valor-inicial
-    const [auth, setAuth] = useState([]);
+    const [auth, setAuth] = useState(true);
+    const [total, setTotal] = useState(0);
+    const [cart, setCart] = useState([]);
+    /**
+     * Reglas de los hooks:
+     * 1. Se colocan en la parte superior de loss componentes
+     * 2. No se deben colocar dentro de condicionales, funciones, tampoco después de un return
+     */
+    
 
   return (
     <>
