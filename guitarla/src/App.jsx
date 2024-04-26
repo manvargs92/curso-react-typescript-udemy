@@ -28,7 +28,7 @@ function App() {
 
     const [data, setData] = useState(db);
 
-    
+
 
   return (
     <>
@@ -40,12 +40,11 @@ function App() {
 
           <div className="row mt-5">
 
-            <Guitar />
-            <Guitar />
-            <Guitar />
-            <Guitar />
-            <Guitar />
-            <Guitar />
+            { // las llaves indican que es código de JS
+              data.map(() => (
+                <Guitar />
+              ))
+            }
 
           </div>
       </main>
