@@ -7,6 +7,10 @@ function Guitar({guitar}) { // aplicando destructuring a props
     console.log(guitar);
 
     const {id, name, image, description, price} = guitar; // aplicando destructuring al prop guitar
+
+    const handleClick = () => {
+        console.log("Diste clic...", id);
+    }
     
     return (
         <>
@@ -23,6 +27,7 @@ function Guitar({guitar}) { // aplicando destructuring a props
                     <button 
                         type="button"
                         className="btn btn-dark w-100"
+                        onClick={ () => handleClick(guitar) } // eventos en JSX. Agregar un callback cuando hay parametros para que espere al evento para ejecutar la función
                     >Agregar al Carrito</button>
                 </div>
             </div>
