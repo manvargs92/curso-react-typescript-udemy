@@ -1,29 +1,34 @@
 import { useState, useEffect } from "react"; // importar el hook para manejar el state
 import Header from "./components/Header" // importar un componente
 import Guitar from "./components/Guitar"
+import { db } from "./data/db"
 
 function App() {
 
-    // State
-    // [state, funcion-cambiar-state] = valor-inicial
-    const [auth, setAuth] = useState(false);
-    const [total, setTotal] = useState(0);
-    const [cart, setCart] = useState([]);
-    /**
-     * Reglas de los hooks:
-     * 1. Se colocan en la parte superior de loss componentes
-     * 2. No se deben colocar dentro de condicionales, funciones, tampoco después de un return
-     */
+    // // State
+    // // [state, funcion-cambiar-state] = valor-inicial
+    // const [auth, setAuth] = useState(false);
+    // const [total, setTotal] = useState(0);
+    // const [cart, setCart] = useState([]);
+    // /**
+    //  * Reglas de los hooks:
+    //  * 1. Se colocan en la parte superior de loss componentes
+    //  * 2. No se deben colocar dentro de condicionales, funciones, tampoco después de un return
+    //  */
 
-    // arreglo de dependencias
-    useEffect(() => {
-        console.log("Componente listo o escuchando por auth...");
-    }, [auth]); // [] - se ejecutará cuando el componente esté listo. [dep1, dep2] - se ejecutará cada vez que cambie alguna de las dependencias
+    // // arreglo de dependencias
+    // useEffect(() => {
+    //     console.log("Componente listo o escuchando por auth...");
+    // }, [auth]); // [] - se ejecutará cuando el componente esté listo. [dep1, dep2] - se ejecutará cada vez que cambie alguna de las dependencias
 
 
-    setTimeout(() => {
-        setAuth(true);
-    }, 3000);
+    // setTimeout(() => {
+    //     setAuth(true);
+    // }, 3000);
+
+    const [data, setData] = useState(db);
+
+    
 
   return (
     <>
