@@ -1,6 +1,6 @@
 
 // function Guitar(props) { // props - tomamos los props
-function Guitar({guitar}) { // aplicando destructuring a props
+function Guitar({guitar, cart, setCart}) { // aplicando destructuring a props
 
     // console.log(props.price); // acceder a los props y sus valores
     // console.log(props.auth);
@@ -8,8 +8,9 @@ function Guitar({guitar}) { // aplicando destructuring a props
 
     const {id, name, image, description, price} = guitar; // aplicando destructuring al prop guitar
 
-    const handleClick = () => {
-        console.log("Diste clic...", id);
+    const handleClick = (guitar) => {
+        // console.log("Diste clic...", guitar);
+        setCart([...cart, guitar]); // agregando persistencia al carrito
     }
     
     return (

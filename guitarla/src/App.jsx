@@ -9,7 +9,6 @@ function App() {
     // // [state, funcion-cambiar-state] = valor-inicial
     // const [auth, setAuth] = useState(false);
     // const [total, setTotal] = useState(0);
-    // const [cart, setCart] = useState([]);
     // /**
     //  * Reglas de los hooks:
     //  * 1. Se colocan en la parte superior de loss componentes
@@ -27,6 +26,8 @@ function App() {
     // }, 3000);
 
     const [data, setData] = useState(db);
+
+    const [cart, setCart] = useState([]);
 
   return (
     <>
@@ -46,6 +47,8 @@ function App() {
                   // auth={true}
 
                   guitar={guitar}
+                  cart={cart}
+                  setCart={setCart}
                 />
               ))
             }
