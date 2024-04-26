@@ -28,8 +28,6 @@ function App() {
 
     const [data, setData] = useState(db);
 
-
-
   return (
     <>
 
@@ -41,10 +39,13 @@ function App() {
           <div className="row mt-5">
 
             { // las llaves indican que es código de JS
-              data.map(() => (
+              data.map((guitar) => (
                 <Guitar
-                  price={100} // prop - valor que se le va a pasar al componente
-                  auth={true}
+                  key={guitar.id} // Siempre al iterar hay que pasar un identificador único, ya sea un id, un name, etc, siempre que sean únicos
+                  // price={100} // nombre-prop={valor-que-se-le-va-a-pasar-al-componente}
+                  // auth={true}
+
+                  guitar={guitar}
                 />
               ))
             }
