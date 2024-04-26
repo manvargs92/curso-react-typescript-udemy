@@ -42,7 +42,10 @@ function App() {
 
             { // las llaves indican que es código de JS
               data.map(() => (
-                <Guitar />
+                <Guitar
+                  price={100} // prop - valor que se le va a pasar al componente
+                  auth={true}
+                />
               ))
             }
 
