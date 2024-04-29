@@ -1,5 +1,8 @@
 
 function Header({cart}) {
+
+    // State derivado
+    const isEmpty = () => cart.length === 0; // el carrito está vacío
     
     return(
         <>
@@ -18,7 +21,7 @@ function Header({cart}) {
                                 <img className="img-fluid" src="./public/img/carrito.png" alt="imagen carrito" />
 
                                 <div id="carrito" className="bg-white p-3">
-                                    { cart.length === 0 ? (
+                                    { isEmpty() ? (
                                         <p className="text-center">El carrito esta vacio</p>
                                     ) : (
                                         <table className="w-100 table">
