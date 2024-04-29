@@ -33,8 +33,15 @@ function App() {
       const itemExist = cart.findIndex(tempGuitar => tempGuitar.id === item.id); // si existe retorna la posición; si no existe retorna -1
       console.log(itemExist);
 
-      console.log("agregando...");
-      setCart(prevCart => [...prevCart, item]);
+      if (itemExist >= 0) { // significa que el elemento existe en el carrito
+        console.log("Ya existe...");
+      } else {
+        console.log("No existe, agregando...");
+        item.quantity = 1;
+        // setCart(prevCart => [...prevCart, item]);
+        setCart([...cart, item]);
+      }
+
 
     }
 
