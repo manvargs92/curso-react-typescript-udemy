@@ -35,6 +35,10 @@ function App() {
 
       if (itemExist >= 0) { // significa que el elemento existe en el carrito
         console.log("Ya existe...");
+        // cart[itemExist].quantity++; // no se debe hacer esto ya que se modifica directamente el state
+        const updatedCart = [...cart];
+        updatedCart[itemExist].quantity++;
+        setCart(updatedCart);
       } else {
         console.log("No existe, agregando...");
         item.quantity = 1;
