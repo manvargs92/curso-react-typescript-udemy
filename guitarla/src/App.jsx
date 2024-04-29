@@ -30,6 +30,9 @@ function App() {
     const [cart, setCart] = useState([]);
 
     function addToCart(item) {
+      const itemExist = cart.findIndex(tempGuitar => tempGuitar.id === item.id); // si existe retorna la posición; si no existe retorna -1
+      console.log(itemExist);
+
       console.log("agregando...");
       setCart(prevCart => [...prevCart, item]);
 
