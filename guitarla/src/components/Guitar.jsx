@@ -1,6 +1,8 @@
 
 // function Guitar(props) { // props - tomamos los props
-function Guitar({guitar, cart, setCart}) { // aplicando destructuring a props
+// function Guitar({guitar, cart, setCart}) { // aplicando destructuring a props
+// function Guitar({guitar, setCart}) {
+function Guitar({guitar, addToCart}) {
 
     // console.log(props.price); // acceder a los props y sus valores
     // console.log(props.auth);
@@ -10,7 +12,7 @@ function Guitar({guitar, cart, setCart}) { // aplicando destructuring a props
 
     const handleClick = (guitar) => {
         // console.log("Diste clic...", guitar);
-        setCart([...cart, guitar]); // agregando persistencia al carrito
+        // setCart([...cart, guitar]); // agregando persistencia al carrito
     }
     
     return (
@@ -28,7 +30,10 @@ function Guitar({guitar, cart, setCart}) { // aplicando destructuring a props
                     <button 
                         type="button"
                         className="btn btn-dark w-100"
-                        onClick={ () => handleClick(guitar) } // eventos en JSX. Agregar un callback cuando hay parametros para que espere al evento para ejecutar la función
+                        // onClick={ () => handleClick(guitar) } // eventos en JSX. Agregar un callback cuando hay parametros para que espere al evento para ejecutar la función
+                        // onClick={ () => setCart([...cart, guitar]) }
+                        // onClick={ () => setCart(prevCart => [...prevCart, guitar]) }
+                        onClick={ () => addToCart(guitar) }
                     >Agregar al Carrito</button>
                 </div>
             </div>

@@ -29,6 +29,12 @@ function App() {
 
     const [cart, setCart] = useState([]);
 
+    function addToCart(item) {
+      console.log("agregando...");
+      setCart(prevCart => [...prevCart, item]);
+
+    }
+
   return (
     <>
 
@@ -47,8 +53,9 @@ function App() {
                   // auth={true}
 
                   guitar={guitar}
-                  cart={cart}
+                  // cart={cart}
                   setCart={setCart}
+                  addToCart={addToCart}
                 />
               ))
             }
