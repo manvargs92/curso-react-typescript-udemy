@@ -1,9 +1,12 @@
+import { useMemo } from "react";
 
 function Header({cart}) {
 
     // State derivado
-    const isEmpty = () => cart.length === 0; // el carrito está vacío
-    const carTotal = () => cart.reduce((total, item) => total + (item.quantity * item.price), 0);
+    // const isEmpty = () => cart.length === 0; // el carrito está vacío
+    // const carTotal = () => cart.reduce((total, item) => total + (item.quantity * item.price), 0);
+    const isEmpty = useMemo(() => cart.length === 0, [cart]); // useMemo - no hace el render completo de la aplicación hasta que haya cierto cambio definido, en este caso, cuando cart cambie
+    const carTotal = useMemo(() => cart.reduce((total, item) => total + (item.quantity * item.price), 0), [cart]);
     
     return(
         <>
@@ -22,7 +25,8 @@ function Header({cart}) {
                                 <img className="img-fluid" src="./public/img/carrito.png" alt="imagen carrito" />
 
                                 <div id="carrito" className="bg-white p-3">
-                                    { isEmpty() ? (
+                                    {/* { isEmpty() ? ( */}
+                                    { isEmpty ? ( // al agregar useMemo, isEmpty deja de ser una función
                                         <p className="text-center">El carrito esta vacio</p>
                                     ) : (
                                         <>
@@ -75,7 +79,8 @@ function Header({cart}) {
                                                 </tbody>
                                             </table>
 
-                                            <p className="text-end">Total pagar: <span className="fw-bold">${ carTotal() }</span></p>
+                                            {/* <p className="text-end">Total pagar: <span className="fw-bold">${ carTotal() }</span></p>   al agregar useMemo, carTotal deja de ser una función*/}
+                                            <p className="text-end">Total pagar: <span className="fw-bold">${ carTotal }</span></p>
                                             <button className="btn btn-dark w-100 mt-3 p-2">Vaciar Carrito</button>
 
                                         </>
