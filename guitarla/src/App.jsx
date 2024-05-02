@@ -30,7 +30,8 @@ function App() {
     return localStorageCart ? JSON.parse(localStorageCart) : [];
   }
 
-  const [data, setData] = useState(db);
+  // const [data, setData] = useState(db);
+  const [data] = useState(db); // eliminar funciones que nunca se utilizan
 
   // const [cart, setCart] = useState([]);
   const [cart, setCart] = useState(initialCart); // ejecuta al inicio initialCart
