@@ -25,9 +25,15 @@ function App() {
   //     setAuth(true);
   // }, 3000);
 
+  const initialCart = () => {
+    const localStorageCart = localStorage.getItem("cart"); // obtiene el carrito de localStorage
+    return localStorageCart ? JSON.parse(localStorageCart) : [];
+  }
+
   const [data, setData] = useState(db);
 
-  const [cart, setCart] = useState([]);
+  // const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState(initialCart); // ejecuta al inicio initialCart
 
   const MIN_ITEMS = 1;
   const MAX_ITEMS = 5;
