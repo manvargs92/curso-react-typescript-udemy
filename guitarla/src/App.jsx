@@ -49,11 +49,18 @@ function App() {
 
     }
 
+    function removeFromCart(id) {
+      console.log("Eliminando...", id);
+
+      setCart(prevCart => prevCart.filter(guitar => guitar.id !== id)); // conserva las guitarras que no queremos eliminar
+    }
+
   return (
     <>
 
       <Header
       cart={cart}
+      removeFromCart={removeFromCart}
       />
 
       <main className="container-xl mt-5">

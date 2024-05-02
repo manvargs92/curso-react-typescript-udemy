@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 
-function Header({cart}) {
+function Header({cart, removeFromCart}) {
 
     // State derivado
     // const isEmpty = () => cart.length === 0; // el carrito está vacío
@@ -70,6 +70,7 @@ function Header({cart}) {
                                                                 <button
                                                                     className="btn btn-danger"
                                                                     type="button"
+                                                                    onClick={() => removeFromCart(guitar.id)}
                                                                 >
                                                                     X
                                                                 </button>
