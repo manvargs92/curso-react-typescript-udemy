@@ -29,6 +29,7 @@ function App() {
 
     const [cart, setCart] = useState([]);
 
+    const MIN_ITEMS = 1;
     const MAX_ITEMS = 5;
 
     function addToCart(item) {
@@ -37,6 +38,7 @@ function App() {
 
       if (itemExist >= 0) { // significa que el elemento existe en el carrito
         console.log("Ya existe...");
+        if (cart[itemExist].quantity >= MAX_ITEMS) return // para que agrege más elementos del  maximo al hacer clic en "Agregar al carrito"
         // cart[itemExist].quantity++; // no se debe hacer esto ya que se modifica directamente el state
         const updatedCart = [...cart];
         updatedCart[itemExist].quantity++;
@@ -63,7 +65,7 @@ function App() {
       const updatedCart = cart.map(item => {
         if (item.id === id && item.quantity < MAX_ITEMS) {
           return {
-            ...item,
+            ...item, // copia del elemento con todas sus propiedades
             quantity: item.quantity + 1
           }
         }
@@ -74,6 +76,23 @@ function App() {
       setCart(updatedCart);
     }
 
+    function decreaseQuantity(id) {
+      console.log("Decremendando...", id);
+
+      const updatedCart = cart.map(item => {
+        if (item.id === id && item.quantity > MIN_ITEMS) {
+          return {
+            ...item,
+            quantity: item.quantity - 1
+          }
+        }
+
+        return item;
+      });
+      
+      setCart(updatedCart);
+    }
+
   return (
     <>
 
@@ -81,6 +100,7 @@ function App() {
       cart={cart}
       removeFromCart={removeFromCart}
       increaseQuantity={increaseQuantity}
+      decreaseQuantity={decreaseQuantity}
       />
 
       <main className="container-xl mt-5">
