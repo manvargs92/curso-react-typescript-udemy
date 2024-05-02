@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 
-function Header({cart, removeFromCart, increaseQuantity, decreaseQuantity}) {
+function Header({cart, removeFromCart, increaseQuantity, decreaseQuantity, clearCart}) {
 
     // State derivado
     // const isEmpty = () => cart.length === 0; // el carrito está vacío
@@ -84,7 +84,12 @@ function Header({cart, removeFromCart, increaseQuantity, decreaseQuantity}) {
 
                                             {/* <p className="text-end">Total pagar: <span className="fw-bold">${ carTotal() }</span></p>   al agregar useMemo, carTotal deja de ser una función*/}
                                             <p className="text-end">Total pagar: <span className="fw-bold">${ carTotal }</span></p>
-                                            <button className="btn btn-dark w-100 mt-3 p-2">Vaciar Carrito</button>
+                                            <button 
+                                            className="btn btn-dark w-100 mt-3 p-2"
+                                            onClick={clearCart}
+                                            >
+                                                Vaciar Carrito
+                                            </button>
 
                                         </>
                                     ) }
