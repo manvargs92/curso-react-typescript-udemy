@@ -6,7 +6,7 @@ function Guitar({guitar, addToCart}) {
 
     // console.log(props.price); // acceder a los props y sus valores
     // console.log(props.auth);
-    console.log(guitar);
+    // console.log(guitar);
 
     const {id, name, image, description, price} = guitar; // aplicando destructuring al prop guitar
 

@@ -29,6 +29,8 @@ function App() {
 
     const [cart, setCart] = useState([]);
 
+    const MAX_ITEMS = 5;
+
     function addToCart(item) {
       const itemExist = cart.findIndex(tempGuitar => tempGuitar.id === item.id); // si existe retorna la posición; si no existe retorna -1
       console.log(itemExist);
@@ -55,12 +57,30 @@ function App() {
       setCart(prevCart => prevCart.filter(guitar => guitar.id !== id)); // conserva las guitarras que no queremos eliminar
     }
 
+    function increaseQuantity(id) {
+      console.log("Incrementando...", id);
+
+      const updatedCart = cart.map(item => {
+        if (item.id === id && item.quantity < MAX_ITEMS) {
+          return {
+            ...item,
+            quantity: item.quantity + 1
+          }
+        }
+
+        return item; // mantener el resto de los productos a los cuales no les estoy dando clic en incrementar
+      });
+
+      setCart(updatedCart);
+    }
+
   return (
     <>
 
       <Header
       cart={cart}
       removeFromCart={removeFromCart}
+      increaseQuantity={increaseQuantity}
       />
 
       <main className="container-xl mt-5">
